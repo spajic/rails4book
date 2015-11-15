@@ -18,6 +18,11 @@ class StoreControllerTest < ActionController::TestCase
     assert_select '.price', minimum: 3
   end
 
+  test "should have button 'Add to Cart'" do
+    get :index
+    assert_select 'input[value="Add to Cart"]', minimum: 3
+  end
+
   test "should get properly rendered price with $" do
     get :index
     assert_select '.price', /\$[\d]+\.\d\d/
@@ -28,4 +33,5 @@ class StoreControllerTest < ActionController::TestCase
     assert_select '#main .entry', minimum: 3
     assert_select '#columns #side a', minimum: 4
   end
+
 end
