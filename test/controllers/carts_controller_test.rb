@@ -11,6 +11,11 @@ class CartsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:carts)
   end
 
+  test "should show proper cart page on fixture data" do
+    get :show, id: carts(:cart_of_rubyst)
+    assert_select 'li', /Ruby/, minimum: 1
+  end
+
   test "should get new" do
     get :new
     assert_response :success

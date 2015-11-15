@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:create]
   before_action :set_cart_item, only: [:show, :edit, :update, :destroy]
 
   # GET /cart_items
@@ -24,11 +26,12 @@ class CartItemsController < ApplicationController
   # POST /cart_items
   # POST /cart_items.json
   def create
-    @cart_item = CartItem.new(cart_item_params)
+    product = Product.find(params[:product_id])
+    @cart_item = @cart.cart_items.build(product: product)
 
     respond_to do |format|
       if @cart_item.save
-        format.html { redirect_to @cart_item, notice: 'Cart item was successfully created.' }
+        format.html { redirect_to @cart_item.cart, notice: 'Cart item was successfully created.' }
         format.json { render :show, status: :created, location: @cart_item }
       else
         format.html { render :new }
