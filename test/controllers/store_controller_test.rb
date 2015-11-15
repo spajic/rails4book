@@ -7,6 +7,7 @@ class StoreControllerTest < ActionController::TestCase
   end
   
   test "should assign instance variable '@products'" do
+    get :index
     assert_not_nil assigns(:products)
   end
 
