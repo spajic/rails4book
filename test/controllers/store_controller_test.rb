@@ -13,15 +13,18 @@ class StoreControllerTest < ActionController::TestCase
 
   test "should get properly rendered store/index view" do
     get :index
-    assert_response :success
     assert_select 'h3', 'Programming Ruby 1.9'
     assert_select '.entry', minimum: 3
-    assert_select '.price', /\$[,\d]+\.\d\d/
+    assert_select '.price', minimum: 3
+  end
+
+  test "should get properly rendered price with $" do
+    get :index
+    assert_select '.price', /\$[\d]+\.\d\d/
   end
 
   test "should get properly rendered store/index view inside app layout" do
     get :index
-    assert_response :success
     assert_select '#main .entry', minimum: 3
     assert_select '#columns #side a', minimum: 4
   end
