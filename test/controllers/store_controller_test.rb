@@ -6,4 +6,12 @@ class StoreControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get properly rendered store/index view" do
+    get :index
+    assert_response :success
+    assert_select 'h3', 'Programming Ruby 1.9'
+    assert_select '#main .entry', minimum: 3
+    assert_select '#columns #side a', minimum: 4
+    assert_select '.price', /\$[,\d]+\.\d\d/
+  end
 end
