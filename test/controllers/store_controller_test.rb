@@ -31,7 +31,7 @@ class StoreControllerTest < ActionController::TestCase
   test "should get properly rendered store/index view inside app layout" do
     get :index
     assert_select '#main .entry', minimum: 3
-    assert_select '#columns #side a', minimum: 4
+    assert_select '#columns #side a', minimum: 2
   end
 
 end
