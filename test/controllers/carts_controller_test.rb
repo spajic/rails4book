@@ -13,12 +13,12 @@ class CartsControllerTest < ActionController::TestCase
 
   test "should show proper cart page on fixture data" do
     get :show, id: carts(:cart_of_rubyst)
-    assert_select 'li', /Ruby/, minimum: 1
+    assert_select 'td', /Ruby/, minimum: 1
   end
 
-  test "should show quantity information in form n x quantity" do
+  test "should show quantity information in form 1x quantity" do
     get :show, id: carts(:cart_of_rubyst)
-    assert_select 'li', /1 x Programming Ruby/
+    assert_select 'td', /1x/
   end
 
   test "should get new" do
@@ -51,9 +51,10 @@ class CartsControllerTest < ActionController::TestCase
 
   test "should destroy cart" do
     assert_difference('Cart.count', -1) do
+      session[:cart_id] = @cart.id
       delete :destroy, id: @cart
     end
 
-    assert_redirected_to carts_path
+    assert_redirected_to store_path
   end
 end

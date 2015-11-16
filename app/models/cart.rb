@@ -10,5 +10,9 @@ class Cart < ActiveRecord::Base
   	end
   	current_cart_item
   end
+
+  def total_price
+    cart_items.to_a.sum{|ci| ci.total_price}
+  end
   
 end
