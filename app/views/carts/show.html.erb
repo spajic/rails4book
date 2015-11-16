@@ -5,6 +5,6 @@
 <h2>Your Sopping Cart</h2>
 <ul>
 	<% @cart.cart_items.each do |item| %>
-		<li> <%= item.product.title %> </li>
+		<li> <%= item.quantity %> x <%= item.product.title %> </li>
 	<% end %>
 </ul>

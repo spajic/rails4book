@@ -11,3 +11,4 @@ two:
 ruby_of_rubyst:
   cart_id: 1
   product_id: 1
+  quantity: 1

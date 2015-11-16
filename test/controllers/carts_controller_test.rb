@@ -16,6 +16,11 @@ class CartsControllerTest < ActionController::TestCase
     assert_select 'li', /Ruby/, minimum: 1
   end
 
+  test "should show quantity information in form n x quantity" do
+    get :show, id: carts(:cart_of_rubyst)
+    assert_select 'li', /1 x Programming Ruby/
+  end
+
   test "should get new" do
     get :new
     assert_response :success
