@@ -40,4 +40,8 @@ class StoreControllerTest < ActionController::TestCase
     assert_select '.entry input[type=submit]', minimum: 3
   end
 
+  test "should contain button 'Checkout'" do
+    get :index
+    assert_select 'input[value=Checkout]'
+  end
 end
