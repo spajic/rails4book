@@ -34,4 +34,10 @@ class StoreControllerTest < ActionController::TestCase
     assert_select '#columns #side a', minimum: 2
   end
 
+  test "markup needed to store.js.coffe is in place" do
+    get :index
+    assert_select '.store .entry > img', minimum: 3
+    assert_select '.entry input[type=submit]', minimum: 3
+  end
+
 end
