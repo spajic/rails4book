@@ -88,3 +88,35 @@
 		}
 	}
 }
+
+.rails4book_form {
+	fieldset {
+		background:  #6a6;
+		legend {
+			color: #dfd;
+			background: #141;
+			font-family: sans-serif;
+			padding: 0.2em 1em;
+		}
+	}
+
+	form {
+		label {
+			width: 5em;
+			float: left;
+			text-align: right;
+			padding-top: 0.2em;
+			margin-right: 0.1em;
+			display: block;
+		}
+		select, textarea, input {
+			margin-left: 10px;
+		}
+		.submit {
+			margin-left: 4em;
+		}
+		br {
+			display: none;
+		}
+	}
+}

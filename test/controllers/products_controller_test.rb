@@ -45,7 +45,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should destroy product that is not in any cart" do
     assert_difference('Product.count', -1) do
-      delete :destroy, id: products(:one)
+      delete :destroy, id: products(:two)
     end
 
     assert_redirected_to products_path
