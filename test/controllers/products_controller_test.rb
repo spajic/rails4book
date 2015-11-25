@@ -5,10 +5,16 @@ class ProductsControllerTest < ActionController::TestCase
     @product = products(:ruby)
   end
 
-  test "should get index" do
+  test "should get index for admin" do
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
+  end
+
+  test "should redirect to login page for not admin" do
+    logout
+    get :index
+    assert_redirected_to login_url
   end
 
   test "should get new" do
