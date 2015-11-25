@@ -1,0 +1,13 @@
+<h3>Заказ из rails4book отправлен</h3>
+
+<p>
+  <%= @greeting %><br>
+  это сообщение подтверждает успешный заказ следующих товаров:
+</p>
+
+<table>
+	<tr>
+		<th colspan="2">К-во</th><th>Описание</th>
+	</tr>
+	<%= render @order.cart_items -%>
+</table>
